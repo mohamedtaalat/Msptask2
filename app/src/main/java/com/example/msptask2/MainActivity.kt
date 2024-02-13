@@ -225,6 +225,7 @@ class MainActivity : AppCompatActivity() {
                 tv1.text=div.div(num1,num2).toString()
             }else if (eq=="-"){
                 var sub:Subtraction=Subtraction()
+                tv1.text=sub.sub(num1,num2).toString()
             }else if (eq=="%")
             {
                 var mod: Modelse =Modelse()
