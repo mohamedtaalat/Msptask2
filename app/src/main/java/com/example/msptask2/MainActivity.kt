@@ -259,7 +259,7 @@ class MainActivity : AppCompatActivity() {
             }else if (eq=="-"){
 
                 tv1.text=op.Substraction(num1,num2).toString()
-                tv1.text=sub.sub(num1,num2).toString()
+                tv1.text=op.Substraction(num1,num2).toString()
             }else if (eq=="%")
             {
 
