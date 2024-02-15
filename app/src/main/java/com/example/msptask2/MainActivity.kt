@@ -4,11 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
-import com.example.msptask2.operation.Addition
-import com.example.msptask2.operation.Divide
-import com.example.msptask2.operation.Modelse
-import com.example.msptask2.operation.Multiplicatioin
-import com.example.msptask2.operation.Subtraction
+import com.example.msptask2.operation.Operation
 
 class MainActivity : AppCompatActivity() {
     lateinit var tv1:TextView
@@ -39,6 +35,7 @@ class MainActivity : AppCompatActivity() {
         var num1:Float = 0.0f
         var num2:Float = 0.0f
         var eq = ""
+        var op:Operation= Operation()
         tv1=findViewById(R.id.tv1)
         b1=findViewById(R.id.b1)
         b2=findViewById(R.id.b2)
@@ -65,7 +62,13 @@ class MainActivity : AppCompatActivity() {
         }
         b2.setOnClickListener{
             var res:String = tv1.text.toString()
+            if (res!=""){
             num1 = res.toFloat()
+            }
+            else
+            {
+                num1=0.0f
+            }
             tv1.text = ""
             eq="%"
         }
@@ -80,7 +83,13 @@ class MainActivity : AppCompatActivity() {
         }
         b4.setOnClickListener{
             var res:String = tv1.text.toString()
-            num1 = res.toFloat()
+            if (res!=""){
+                num1 = res.toFloat()
+            }
+            else
+            {
+                num1=0.0f
+            }
             tv1.text = ""
             eq="/"
         }
@@ -107,7 +116,13 @@ class MainActivity : AppCompatActivity() {
         b8.setOnClickListener{
             eq="*"
             var res:String = tv1.text.toString()
-            num1 = res.toFloat()
+            if (res!=""){
+                num1 = res.toFloat()
+            }
+            else
+            {
+                num1=0.0f
+            }
             tv1.text = ""
 
 
@@ -138,7 +153,13 @@ class MainActivity : AppCompatActivity() {
         }
         b12.setOnClickListener{
             var res:String = tv1.text.toString()
-            num1 = res.toFloat()
+            if (res!=""){
+                num1 = res.toFloat()
+            }
+            else
+            {
+                num1=0.0f
+            }
             tv1.text = ""
             eq="-"
 
@@ -172,7 +193,13 @@ class MainActivity : AppCompatActivity() {
         }
         b16.setOnClickListener{
             var res:String = tv1.text.toString()
-            num1 = res.toFloat()
+            if (res!=""){
+                num1 = res.toFloat()
+            }
+            else
+            {
+                num1=0.0f
+            }
             tv1.text = ""
             eq="+"
 
@@ -209,27 +236,34 @@ class MainActivity : AppCompatActivity() {
         }
         b20.setOnClickListener{
             var res:String = tv1.text.toString()
+            if (res!="")
+            {
             num2 = res.toFloat()
+            }
+            else {
+                num2=0.0f
+            }
             tv1.text = ""
             if (eq=="+"){
-                var add:Addition = Addition()
-                tv1.text = add.add(num1,num2).toString()
+
+                tv1.text = op.Addition(num1,num2).toString()
 
             }
            else if(eq=="*"){
-             var mul : Multiplicatioin= Multiplicatioin()
-                tv1.text=mul.mul(num1,num2).toString()
+
+                tv1.text=op.Multiplicatioin(num1,num2).toString()
             }
             else if (eq=="/"){
-                var div:Divide=Divide()
-                tv1.text=div.div(num1,num2).toString()
+
+                tv1.text=op.Divide(num1,num2).toString()
             }else if (eq=="-"){
-                var sub:Subtraction=Subtraction()
+
+                tv1.text=op.Substraction(num1,num2).toString()
                 tv1.text=sub.sub(num1,num2).toString()
             }else if (eq=="%")
             {
-                var mod: Modelse =Modelse()
-                tv1.text=mod.mod(num1,num2).toString()
+
+                tv1.text=op.Modelse(num1,num2).toString()
             }
 
 
